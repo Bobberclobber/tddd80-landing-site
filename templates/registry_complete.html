@@ -1,0 +1,94 @@
+{% extends "masterpage.html" %}
+{% block title %}
+    Registry Complete
+{% endblock %}
+
+{% block link %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/social_media_style.css') }}">
+{% endblock %}
+
+{% block wrapper %}
+    <h1>Thank you for Registering!</h1>
+    <div id="facebook_layout">
+
+        <h2>Like and Share on Facebook</h2>
+
+        <!-- Facebook Login -->
+        <div id="fb-root"></div>
+        <script>
+            var cookie_name = "oauth_token"
+            window.fbAsyncInit = function () {
+                FB.init({
+                    appId: '256159431223965',
+                    status: true,
+                    xfbml: true
+                });
+                FB.Event.subscribe('auth.authResponseChange', function (response) {
+                    if (response.status === 'connected') {
+                        document.cookie = cookie_name + "=" + response.authResponse.accessToken;
+                    } else {
+                        document.cookie = cookie_name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+                        FB.login();
+                    }
+                });
+            };
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {
+                    return;
+                }
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/en_US/all.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+        <fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
+        <!-- Facebook Login Ends -->
+
+        <div id="share_and_like">
+
+            <!-- Facebook Like Button -->
+            <div class="fb-like" data-href="https://developers.facebook.com/x/apps/256159431223965/dashboard/"
+                 data-layout="button_count"
+                 data-action="like" data-show-faces="false" data-share="false"></div>
+            <!-- Facebook Like Button Ends -->
+
+            <!-- Publish Custom Story Button -->
+            <form id="share_button" action="{{ url_for('publish_custom_story') }}" method=POST>
+                <input type="submit" value="Share">
+            </form>
+            <!-- Publish Custom Story Button Ends -->
+
+        </div>
+
+    </div>
+
+    <div id="twitter_layout">
+
+        <h2>Follow us on Twitter</h2>
+
+        <!-- Twitter Follow Button -->
+        <a href="https://twitter.com/JosefFagerstrm" class="twitter-follow-button" data-show-count="false"
+           data-lang="en"
+           data-size="small">Follow @twitter</a>
+
+        <script>!function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (!d.getElementById(id)) {
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//platform.twitter.com/widgets.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }
+        }(document, "script", "twitter-wjs");</script>
+        <!-- Twitter Follow Button Ends -->
+
+        <ul id="tweet_list">
+            {% for item in tweet_list %}
+                <li><a href={{ item.user_url }} target="_blank">{{ item.user }}</a>: {{ item.text }}</li>
+            {% endfor %}
+        </ul>
+
+    </div>
+{% endblock %}

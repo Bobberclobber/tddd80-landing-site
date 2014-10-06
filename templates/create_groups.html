@@ -1,0 +1,24 @@
+{% extends "masterpage.html" %}
+{% block title %}
+    Create Groups
+{% endblock %}
+
+{% block wrapper %}
+    <h1>Create Groups</h1>
+
+    <!-- This form receives a list of tuples with the name and email of all members -->
+    <form action="{{ url_for('add_group') }}" method=POST>
+        <dt>Group Name:</dt>
+        <dd><input name="new_group_name" type="text"/></dd>
+
+        <p>Select Members</p>
+
+        <!-- This loop creates a checkbox for each member which returns the tuple containing the member's info if checked -->
+        {% for member in member_list %}
+            <dt>{{ member[0] }}&nbsp;{{ member[1] }}:</dt>
+            <dd><input name="member" type="checkbox" value="{{ member[0] + ':' + member[1] + ':' + member[2] }}"/></dd>
+        {% endfor %}
+
+        <dd><input type="submit" value="Create Group"/></dd>
+    </form>
+{% endblock %}

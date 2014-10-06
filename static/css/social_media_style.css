@@ -1,0 +1,64 @@
+h1 {
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+#facebook_layout {
+    padding: 5px;
+    float: left;
+}
+
+#share_and_like {
+    margin-top: 10px;
+}
+
+.fb-like {
+    float: left;
+}
+
+#share_button {
+    margin: 0px auto;
+    float: right;
+}
+
+#twitter_layout {
+    padding: 5px;
+    float: right;
+}
+
+.twitter-follow-button {
+    margin-bottom: 10px;
+}
+
+#tweet_list {
+    width: 400px;
+    padding: 5px;
+    border: 1px solid black;
+    display: block;
+    list-style-type: none;
+}
+
+#tweet_list li {
+    margin-bottom: 5px;
+    border-bottom: 1px solid black;
+}
+
+#tweet_list a{
+    text-decoration: none;
+}
+
+#tweet_list a:hover{
+    border-bottom: 1px solid #4cb32a;
+}
+
+#tweet_list a:active{
+    border-bottom: 1px solid black;
+}
+
+#tweet_list li:last-of-type {
+    margin-bottom: 0px;
+    border-bottom: none;
+}

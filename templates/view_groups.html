@@ -1,0 +1,21 @@
+{% extends "masterpage.html" %}
+{% block title %}
+    View Group
+{% endblock %}
+
+{% block wrapper %}
+    <h1>View Groups</h1>
+
+    {% for key in groups_list %}
+        <h3>{{ key }}</h3>
+        <form action="{{ url_for('e_mail_group') }}" method=POST>
+            <dd><input name="group_name" type="hidden" value="{{ key }}"></dd>
+            <input type="submit" value="E-mail Group"/>
+        </form>
+        <ul>
+            {% for member in groups_list[key] %}
+                <li>{{ member[0] }}&nbsp;{{ member[1] }}</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+{% endblock %}

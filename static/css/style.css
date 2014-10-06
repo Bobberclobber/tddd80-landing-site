@@ -1,0 +1,96 @@
+* {
+    margin: 0px auto;
+    padding: 0px;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #eeeeee;
+}
+
+header {
+    text-align: center;
+}
+
+h1{
+    text-align: center;
+}
+
+header a {
+    color: black;
+    border-bottom: 1px solid #4cb32a;
+    font-family: 'Carme', sans-serif;
+    font-size: 80px;
+    text-decoration: none;
+}
+
+header a:active{
+    border-bottom: 1px solid black;
+}
+
+header a:hover {
+    cursor: pointer;
+    text-shadow: 2px 2px 2px darkgray;
+}
+
+#nav {
+    text-align: center  ;
+}
+
+#nav ul {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    list-style-type: none;
+}
+
+#nav li {
+    margin-left: 15px;
+    display: inline;
+}
+
+#nav a {
+    color: black;
+    text-decoration: none;
+}
+
+#nav a:hover {
+    border-bottom: 2px solid #4cb32a;
+}
+
+#nav a:active {
+    border-bottom: 2px solid black;
+}
+
+#nav a:visited {
+    color: black;
+}
+
+#wrapper {
+    width: 960px;
+    padding: 10px;
+    background-color: white;
+    overflow: hidden;
+}
+
+input[type=submit] {
+    border: none;
+    width: 100px;
+    height: 30px;
+}
+
+input[type=submit]:hover {
+    background-color: #b0b0b0;
+    cursor: pointer;
+}
+
+input[type=submit]:active {
+    background-color: #909090;
+}
+
+input[type=submit]:focus {
+    outline: 0;
+}
+
+footer {
+    width: 960px;
+}

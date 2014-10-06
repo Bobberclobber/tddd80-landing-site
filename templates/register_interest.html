@@ -1,0 +1,57 @@
+{% extends "masterpage.html" %}
+{% block title %}
+    Register Interest
+{% endblock %}
+
+{% block link %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for("static",filename="css/form.css") }}">
+{% endblock %}
+
+{% block wrapper %}
+    <h2>Register Interest</h2>
+    <p>Here you can register your interest for this app.</p>
+    <p>There are currently {{ row_count }} registrations.</p>
+    <form action="{{ url_for('add') }}" method=POST>
+        <dl>
+            <dt>First Name:</dt>
+            <dd><input class="text_field" name="first_name" type="text"/></dd>
+
+            <dt>Last Name:</dt>
+            <dd><input class="text_field" name="last_name" type="text"/></dd>
+
+            <dt>E-Mail:</dt>
+            <dd><input class="text_field" name="e_mail" type="email"/></dd>
+
+            <dt>Country:</dt>
+            <dd><input class="text_field" name="country" type="text"/></dd>
+
+            <dt>City:</dt>
+            <dd><input class="text_field" name="city" type="text"/></dd>
+
+            <!-- The reason for input elements of type "hidden" is that no value will be received from unchecked
+            checkboxes without them which leads to a 400: Bad Request Error -->
+            <dt>How did you hear about us?:</dt>
+            <dd><input name="friend_relative" type="checkbox" value="Yes"/>From a friend or relative</dd>
+            <dd><input name="friend_relative" type="hidden" value="No"/></dd>
+
+            <dd><input name="google" type="checkbox" value="Yes"/>Google+</dd>
+            <dd><input name="google" type="hidden" value="No"/></dd>
+
+            <dd><input name="facebook" type="checkbox" value="Yes"/>Facebook</dd>
+            <dd><input name="facebook" type="hidden" value="No"/></dd>
+
+            <dd><input name="twitter" type="checkbox" value="Yes"/>Twitter</dd>
+            <dd><input name="twitter" type="hidden" value="No"/></dd>
+
+            <dd><input name="search_engine" type="checkbox" value="Yes"/>Through a search engine</dd>
+            <dd><input name="search_engine" type="hidden" value="No"/></dd>
+
+            <dd><input name="other" type="checkbox" value="Yes"/>Other:</dd>
+            <dd><input name="other" type="hidden" value="No"/></dd>
+
+            <dd><input class="text_field" name="other_text" type="text"/></dd>
+
+            <dd><input type="submit"/></dd>
+        </dl>
+    </form>
+{% endblock %}

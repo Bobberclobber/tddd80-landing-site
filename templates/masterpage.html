@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+
+    {% block link %}
+    {% endblock %}
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for("static",filename="css/style.css") }}">
+    <link href='http://fonts.googleapis.com/css?family=Carme' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+{% block body %}
+    <!-- Facebook Like Button Script -->
+    <div id="fb-root"></div>
+    <script>(function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/sv_SE/all.js#xfbml=1&appId=256159431223965";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    <!-- Facebook Like Button Script -->
+
+    <header>
+        <a href="/">AGORA</a>
+    </header>
+
+    <div id="nav">
+        <ul>
+            <li><a href="/">HOME</a></li>
+            <li><a href="#">THE APP</a></li>
+            <li><a href="/register_interest">REGISTER INTEREST</a></li>
+            <li><a href="#">STATS</a></li>
+            <li><a href="/about_me">ABOUT ME</a></li>
+            <li><a href="/admin_page">ADMIN PAGE</a></li>
+        </ul>
+    </div>
+
+    <div id="wrapper">
+        {% block wrapper %}
+        {% endblock %}
+    </div>
+
+    <footer>
+        <h1>FOOTER</h1>
+    </footer>
+
+{% endblock %}
+</body>
+
+</html>
