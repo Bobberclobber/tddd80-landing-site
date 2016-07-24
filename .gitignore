@@ -1,0 +1,5 @@
+# Python compile files
+*.pyc
+
+# Database files
+*.db
